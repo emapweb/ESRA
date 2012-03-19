@@ -1,0 +1,8 @@
+<index-page>
+  <count:>Create or select a Program for review. Please only create one (1) entry for your agency.</count:>
+  <new-link:>
+    <a action="new" to="&model">
+      <button label="New Program">Create New Program</button>
+    </a>
+  </new-link:>
+</index-page>

@@ -1,0 +1,352 @@
+# Even if you only support one language, you can use this file to customise the names that appear in the UI
+# e.g.
+
+en:
+  hello: "Hello world"
+
+  attributes:
+    created_at: Created at
+    updated_at: Updated at
+#
+#  activerecord:
+#    models:
+#      user:
+#        one: User
+#        other: Users
+#    attributes:
+#      user:
+#        name: Name
+#        password: Password
+#        password_confirmation: Password Confirmation
+#        email_address: Email Address
+#    attribute_help:
+#      user:
+#        email_address: We will never share your address with third parties
+#
+  activerecord:
+    models:
+      alevel:
+        one: Activity Level
+        other: Activity Levels
+      ca_doc:
+        one: Document
+        other: Documents
+      consequence:
+        one: Consequence Analysis
+        other: Consequence Analyses
+      corrective_action:
+        one: Corrective Action
+        other: Corrective Actions
+      disdec:
+        one: Disaster Declaration
+        other: Disaster Declarations
+      event:
+        one: Event
+        other: Events
+      eeca:
+        one: EMAP 4.14
+        other: EMAP 4.14
+      efunding:
+        one: Event Funding Source
+        other: Event Funding Source
+      egoal:
+        one: Event Goal
+        other: Event Goals
+      elocation:
+        one: Event Location
+        other: Event Location
+      emap_standard:
+        one: EMAP Standard Area
+        other: EMAP Standard
+      eparticipant:
+        one: Event Participant
+        other: Event Participant
+      e_open_ca:
+        one: Event Open Corrective Action
+        other: Event Open Corrective Actions
+      escenario:
+        one: Event Scenario
+        other: Event Scenarios
+      etype:
+        one: Event Type
+        other: Event Types
+      finding:
+        one: Review Summary
+        other: Review Summaries
+      hira:
+        one: EMAP 4.3
+        other: EMAP 4.3
+      improvement_area:
+        one: Area(s) of Improvement
+        other: Areas of Improvement
+      learned_lesson:
+        one: Lesson Learned
+        other: Lessons Learned
+      program:
+        one: Program
+        other: Program
+      tcap:
+        one: Target Capability
+        other: Target Capabilities
+      tcl:
+        one: Target Capability
+        other: Target Capabilities
+      texercise:
+        one: Training Exercise
+        other: Training Exercises
+      tpriority:
+        one: Training Priority
+        other: Training Priorities
+      training_plan:
+        one: Exercise Plan
+        other: Exercise Plans
+      upload:
+        one: Upload
+        other: Upload
+    attributes:
+      alevel:
+        name: Activity Level
+      corrective_action:
+        name: CA
+        assigned_to: Assigned To
+        completed_by: Completed By
+        completed_date: Completed Date
+        reviewer_ob: Reviewer Finding
+        rev_interview: Interviews
+        rev_docs: Documents Reviewed
+        ca_status: Document Request Status
+      disaster_declaration:
+        name: Disaster
+        ddate: Date
+      disdec:
+        disaster_declarations: FEMA Declaration(s)
+        local_disdecs: Local Declaration(s)
+        state_disdecs: State Declaration(s)
+      e_open_ca:
+        name: Open CA
+      eeca:
+        ex_prog: Documented Exercise Program
+        ex_prog_desc: Program Description
+        ex_prog_doc:  Documentation
+        test_sae_frequency: Personnel Test Frequency
+        test_epef_frequency: Program Test Frequency
+        match_hira: HIRA Based
+        ex_eval_proc: Exercise Evaluation Process
+        eep_desc: Exercise Evaluation Process Description
+        eep_doc: Exercise Evaluation Process Documentation
+        plans_procs_review: Plans and Procedures Reviewed
+        pp_rev_frequency: Plans and Procedures Review Frequency
+        caps_reviewed: Capabilities Reviewed
+        partners: Stakeholders/Partners
+        ca_proc: Corrective Action Process in Place
+        resolution_desc: Corrective Action Process Description
+        resolution_doc: Corrective Action Process Documentation
+      efunding:
+        name: Source
+      egoal:
+        name: Goal
+      elocation:
+        name: Location
+      eparticipant:
+        name: Participant
+      event:
+        event_name: Event Name
+        event_contact: Staff Contact Person
+        event_date: Response Start Date
+        event_end_date: Response End Date
+        event_duration: Event Duration
+        event_duration_description: Event Description
+        ehosts: Event Sponsor(s)/Host(s)
+        event_state: Event State
+        event_type: Event Type
+        event_goal: Event Goal(s)
+        event_scenario: Event Scenario
+        event_scenario_summary: Event Scenario Summarization
+        statewide_event: Statewide Event
+        multistate_event: Multi-state Event
+        ema_role: Role of the Emergency Management Program
+        efundings: Event Funding Source(s)
+        learned_lessons: Lessons Learned
+        tcls: Target Capabilities
+        tcap_tcls: Target Capabilities
+        elocations: Event Location(s)/Site(s)
+        event_scenarios: Event Scenario(s)
+        eparticipants: Event Participant(s)
+        e_open_cas: Event Open Corrective Action(s)
+      event_scenario:
+        name: Scenario
+        description: Scenario Summarization
+      hira:
+        matching: HIRA Consistent with Events
+        description: Description
+        hazards: List Hazard(s)
+      hazard:
+        name: Hazard
+        consequences: Consequence Analysis
+      interview:
+        idate: Date
+      improvement_area:
+        name: Area of Improvement
+      local_disdec:
+        name: Disaster
+        ddate: Date
+      program:
+        name: Program Name
+        program_jurisdiction: Program Jurisdiction/Agency
+        program_street: Program Address
+        program_city: Program City
+        program_state: Program State
+        program_contact: ESRA Point of Contact Name
+        contact_title: ESRA Point of Contact Title
+        contact_phone: ESRA Point of Contact Office Number
+        contact_mobile: ESRA Point of Contact Mobile Number
+        contact_email: ESRA Point of Contact Email Address
+        summary: ESR Summary
+        funding7: 2007
+        funding8: 2008
+        funding9: 2009
+        funding10: 2010
+        gfunding7: 2007
+        funding07_sources: 2007 Funding Source
+        gfunding8: 2008
+        funding08_sources: 2008 Funding Source
+        gfunding9: 2009
+        funding09_sources: 2009 Funding Source
+        gfunding10: 2010
+        funding10_sources: 2010 Funding Source
+        continuous_ca_plan: Continuous Corrective Action Process
+        proc_for_devel: Corrective Action Development Process
+        ca_tracked: Corrective Action Tracking Process
+        ca_summary: Corrective Action Process Summary
+        ca_resolved: Resolved Corrective Actions in the previous year
+        training_plans: Exercise Plan(s)
+        disdecs: Disaster Declaration(s)
+        hiras: EMAP 4.3
+        eecas: EMAP 4.14
+        ca_top_1: 1
+        ca_top_2: 2
+        ca_top_3: 3
+        ca_top_4: 4
+        ca_top_5: 5
+        ca_top_6: 6
+        ca_top_7: 7
+        ca_top_8: 8
+        ca_top_9: 9
+        ca_top_10: 10
+      review_assignment:
+        users: Reviewers
+      review:
+        standalone: Free Standing
+        users: Reviewers
+      state_disdec:
+        name: Disaster
+        ddate: Date
+      strength:
+        name: Strength
+      tcap_tcl:
+        tcap: Target Capability
+        alevels: Activity Level(s)
+      tcl:
+        corrective_actions: Corrective Action(s)
+        summary: Reviewer Observations
+        tcap: Target Capability
+        tcl_alevels: Activity Level(s), Goals, Objectives and Improvement Plans
+      tcl_alevel:
+        alevel: Activity Level
+        alevels: Activity Level(s)
+        improvement_plan: Improvement Plan Provided
+        improvement_plan_completed: Improvement Plan Completed
+        improvement_areas: Area(s) of Improvement
+        tcl_goals: Goal(s)
+        tcl_objectives: Objective(s)
+        emap_standards: EMAP Standard Crosswalk
+      tcl_goal:
+        name: Goal
+      tcl_objective:
+        name: Objective
+      texercise:
+        name: Exercise
+        tdate: Date
+      tpriority:
+        name: Priority
+      train_tcap:
+        tcap: Target Capability
+      training_plan:
+        name: Plan Title
+        train_tcaps: Target Capabilities
+        texercises: Exercise(s)
+        tpriorities: Exercise Priorities
+      upload:
+        proof: File
+      user:
+        state: Account Status
+
+    attribute_help:
+      program:
+        ca_resolved: Use this area to list the top ten (10) resolved corrective actions within the last calendar year.
+        ca_summary: Please provide a summary of the agency's corrective action process. Remember, you can always return to this page to update revise, and complete this section.
+        ca_tracked: Are the corrective actions prioritized, tracked through completion and analyzed by program managers? (check for yes)
+        proc_for_devel: Does the process include taking observations and recommendations and developing corrective actions? (check for yes)
+        continuous_ca_plan: Does the Agency have a continuous corrective action process? (check for yes)
+        summary: Please provide a summary of the event strategic review. This should be a concise abstract which encompasses the various aspects reviewed.
+      tcl:
+        name: Please enter the Program's objective for this Target Capability.
+        tcap: Please select a Target Capability from the list.
+        alevel: Once the TCL has been selected, select an activity level.
+        alevels: Click the plus sign (+) to add activity level(s) for the TCL.
+        improvement_plan: Has the program provided an improvement plan? (check for yes)
+        improvement_plan_completed: Has the program completed the improvement plan? (check for yes)
+        strengths: Click the plus sign (+) to add a Strength of the Program.
+        corrective_actions: Click the plus sign (+) to add a Corrective Action.
+        improvement_areas: Click the plus sign (+) to add an Area of Improvement.
+        tcl_goals: Click the plus sign (+) to add a Goal.
+        tcl_objectives: Click the plus sign (+) to add an Objective.
+      event:
+        event_name: Name of the event.
+        event_contact: EM Staff member who is the point of contact for the event.
+        event_date: Day the response initiated.
+        event_end_date: Day the response ended. Please do not include recovery time.
+        event_duration: Length of the event.
+        event_host: Organization that hosted the event.
+        event_goal: Goal for having the event (not necessary for real-world events).
+        event_scenario_summary: Brief summary of the event, necessary if scenario is "Other".
+        statewide_event: Was the event Statewide? (check for yes)
+        multistate_event: Did the event involve more than one State? (check for yes)
+        ema_role: What role did the State Emergency Management Agency play in the event?
+        event_type: Please select the type of event.
+        event_scenario: Please select the event scenario.
+        eparticipants: Indicate Event Participants (add participants by pushing the "+" button).
+        egoals: Indicate what the goals of the event were (add goals by pushing the "+" button).
+        efundings: Indicate organizations who funded the event (add sources by pushing the "+" button).
+        elocations: Location(s) for the event (add locations by pushing the "+" button).
+      eeca:
+        ex_prog: Does the Emergency Management Program have a documented Exercise Program?(check for yes)
+        ex_prog_desc: Please describe the exercise program.
+        ex_prog_doc: Please list the foundational documentation that was provided for review.
+        test_sae_frequency: How often does the Emergency Management Program test the skills, abilities, and experience of emergency personnel?
+        test_epef_frequency: How often does the Emergency Management Program test the exercise plans, policies, procedures, equipment and facilities?
+        match_hira: Is the Exercise Program tailored to the range of hazards identified in the Hazard Identification and Risk Assessment?(check for yes)
+        ex_eval_proc: Does the Emergency Management Program have some form of an exercise evaluation process in place?(check for yes)
+        eep_desc: If so, please describe.
+        eep_doc: If so, what foundational documentation was provided for review? (Separate documents by commas)
+        plans_procs_review: What plans and procedures are being reviewed?
+        pp_rev_frequency:  How often?
+        caps_reviewed: What capabilities are reviewed?
+        partners: What stakeholders/partners are involved in the process?
+        ca_proc: Does the Emergency Management Program have a corrective action process in place?(check for yes)
+        resolution_desc:  If so, please describe and include how the Program prioritizes and tracks the resolution of deficiencies.
+        resolution_doc: If so, what foundational documentation was provided for review? (seperate documents by commas)
+      hira:
+        matching: Are the hazards identified consistent with the Program's event scenarios?(check for yes)
+        description: Please provide a brief support summary regarding the methodology used to develop their HIRA.
+        hazards: Hazard(s) from the HIRA (add hazards by pushing the "+" button).
+      disdec:
+        disaster_declarations: Enter each FEMA Disaster Declaration since 2007 (add declarations by pushing the "+" button).
+      upload:
+        name: Please enter a name indicating the subject of the document.
+      user:
+        lifecycle:
+          transitions:
+            disable_account: Click to disable account access.
+            enable_account: Click to enable account access.
+        

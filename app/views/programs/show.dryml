@@ -1,0 +1,23 @@
+<show-page>
+  <events-collection: replace>
+    <table-plus with="&@events" fields="this, event_date, tcls.count" >
+      <empty-message:>No events match your criteria</empty-message:>
+      <controls:/>
+    </table-plus>
+  </events-collection:>
+
+<!-- THIS IS NOT WORKING - WRONG NUMBER OF ARGUMENTS (4 FOR 3)-->
+  <!--<uploads-collection-section:>
+    <h3>Uploads</h3>
+    <div part="uploads-div">
+      <error-messages/>
+      <collection:uploads />
+    </div>
+    <br />
+    <h3>Upload a Proof Document</h3>
+    <form with="&new_for_current_user(this.uploads)" owner="program" message="Uploading..." update="uploads-div" without-cancel>
+      <field-list: skip="program"/>
+    </form>
+  </uploads-collection-section:>-->
+
+</show-page>

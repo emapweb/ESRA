@@ -1,0 +1,9 @@
+.bundle
+db/*.sqlite3
+db/schema.rb
+log/*.log
+tmp/
+app/views/taglibs/auto/**/*
+config/hobo_routes.rb
+public/system/
+db/migrate/*

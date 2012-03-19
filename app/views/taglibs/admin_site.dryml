@@ -1,0 +1,76 @@
+<!-- Tag definitions for the admin subsite -->
+
+<include src="rapid" plugin="hobo"/>
+
+<include src="taglibs/auto/admin/rapid/cards"/>
+<include src="taglibs/auto/admin/rapid/pages"/>
+<include src="taglibs/auto/admin/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+<extend tag="page">
+  <old-page merge>
+    <append-stylesheets:>
+      <stylesheet name="admin"/>
+    </append-stylesheets:>
+    <footer:>
+      <a href="#{base_url}/"><t key="hobo.subsite.back_link">View Site</t></a>
+    </footer:>
+  </old-page>
+</extend>
+
+<extend tag="edit-page" for="User">
+  <old-edit-page merge>
+    <append-heading:>
+      <br /><br /><transition-buttons />
+    </append-heading:>
+  </old-edit-page>
+</extend>
+
+<!--<def tag="card" for="User">
+  <card class="user" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4><%= h this.state.titleize %><transition-buttons id="trans-button" />
+    </header:>
+    <body: param>
+      <ht key="review.collection.count" count="&this.reviews.size">
+         <count:reviews param/>
+      </ht>
+      <transition-buttons />
+    </body:>
+  </card>
+</def>-->
+
+<extend tag="card" for="Review"> 
+  <old-card merge>
+    <body:>
+    <h3><a action="edit"><view:program /></a></h3>
+    <h5><repeat:findings join="  " /></h5>
+    <div class="reviewers">
+      Assigned Reviewers: <repeat:users join=", "><name/></repeat>
+    </div>
+    <div class="report">
+      <a class="pdfreport" href="#{base_url}/programs/#{this.program_id}.pdf" target="_blank" param="report"><button>PDF Report</button></a>
+      <!--<a class="docreport" href="../documents/#{this.program_id}_report.doc" target="_blank" param="docreport"><button>Word 95/98 Report</button></a>-->
+    </div>
+    <delete-button class="actions" />
+  </body:>
+  </old-card> 
+</extend>
+
+<extend tag="form" for="Review">
+  <old-form merge without-cancel>
+    <field-list: fields="standalone, program, users">
+      <users-view:>
+        <hjq-combobox>
+          <select-many /><!--options="&(this.nil? ? [] :  User.find_all_by_reviewer)"/>-->
+        </hjq-combobox>
+      </users-view:>
+    </field-list:>
+  </old-form>
+</extend>
+
+<extend tag="show-page" for="Review">
+  <old-show-page merge without-parent-link />
+</extend>
+

@@ -1,0 +1,5 @@
+<accept-invitation-page>
+  <after-heading:>
+    <p>Welcome to <app-name/>, <name/>. To accept your invitation, please create a password. The password must be at least six (6) characters and cannot be composed of entirely lower-case letters.</p>
+  </after-heading:>
+</accept-invitation-page>

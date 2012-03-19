@@ -1,0 +1,29 @@
+<!-- -->
+
+<!-- 
+  Hobo does not allow parameters inside of parts, so to parameterize the view in _belongs-to-slide-editor_ you can redefine this polymorphic tag for your type.
+-->
+<def tag="belongs-to-slide-editor-view" polymorphic >
+  <a action="edit" onclick="Hobo.show('form-#{typed_id}'); return false;" href="" param >
+    <name />
+  </a>
+</def>
+
+<!--
+  Displays a belongs\_to object.  If you click on the object, a form slides open to allow you to edit the object.  When done, the form slides back up. 
+
+  There's a worked up example in the [contrib-test branch of the agility tutorial on github](http://github.com/tablatom/agility/blob/contrib-test/app/views/projects/belongs_to_slide_editor_test.dryml).
+
+  Created by David Mathers and Bryan Larsen. 
+-->
+<def tag='belongs-to-slide-editor'>
+  <div part="slide-editor-view" id="view-#{typed_id}">
+    <belongs-to-slide-editor-view/>
+  </div>
+  <div id="form-#{typed_id}" class="hidden" >
+    <form update="view-#{typed_id}" success="Hobo.hide('form-#{typed_id}');" param>
+      <field-list param/>
+      <submit value="Save" param/><or-cancel onclick="Hobo.hide('form-#{typed_id}'); return false;" href="" param/>
+    </form>
+  </div>
+</def>

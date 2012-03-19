@@ -1,0 +1,891 @@
+<!-- Global taglib - these tags are shared across all subsites -->
+
+<include src="rapid" plugin="hobo"/>
+
+<include src="taglibs/auto/rapid/cards"/>
+<include src="taglibs/auto/rapid/pages"/>
+<include src="taglibs/auto/rapid/forms"/>
+
+<include src="paperclip" plugin="paperclip_with_hobo"/>
+<!--<include src="hobo-contrib-all" plugin="hobo-contrib"/>-->
+<include plugin="hobo-jquery" />
+<include gem="hobo-jquery" />
+
+<set-theme name="clean-sidemenu"/>
+
+
+<!-- ======   jQuery breaks without this  ======  -->
+
+<def tag="annotate-tag">
+  <%= "<!-- json_annotation (#{attributes.to_json}); -->".html_safe %>
+</def>
+
+<!-- ======   Sweet Date Picker  ====== -->
+
+<def tag="input" for="Date"> 
+  <hjq-datepicker changeYear="true" dateFormat="yy-mm-dd" maxDate="new Date(+0y)" minDate="new Date(-5y)" merge /> 
+</def>
+
+<!--<extend tag="field-list">
+  <feckless-fieldset class="horizontal" merge/>
+</extend>-->
+
+<!-- ======   CUSTOM EXTENSIONS/DEFINITIONS  ======  -->
+
+<extend tag="page">
+  <old-page merge without-live-search without-count>
+    <custom-scripts:>
+      <hjq-assets/>
+      <javascript name="jquery.form.js"/>
+      <javascript name="ckeditor/ckeditor"/>
+      <javascript name="load_ckeditor"/>
+        <script type="text/javascript">
+          var last_added;
+          var last_removed;
+          function my_add_hook() {
+            last_added = this;
+          }
+          function my_remove_hook() {
+            last_removed = this;
+            return confirm("Confirm Removal");
+          }
+        </script>
+    </custom-scripts:>
+    <append-scripts:>
+    <%= raw "<!--[if lt IE 9]>" %> 
+      <javascript name="excanvas.compiled.js"/> 
+    <%= raw "<![endif]-->" %>
+    <%= raw "<!--[if lt IE 7]>" %> 
+      <javascript name="IE7.js"/>
+      <javascript name="ie7-recalc.js"/>
+    <%= raw "<![endif]-->" %>
+    </append-scripts:>
+    <footer:>
+      <div>
+        <a href="http://esra.emaponline.org/privacy.html">EMAP Privacy Policy</a>&nbsp;
+        Copyright &#64; 2011 - EMAP
+        <a href="&admin_users_url" if="&current_user.administrator?">
+          <t key="hobo.admin.subsite_name">Admin</t>
+        </a>
+      </div>
+    </footer:>
+  </old-page>
+</extend>
+
+<!-- =====  Input Many JQuery Stylie =====  -->
+
+<def tag="input-many" for="Alevel" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Efunding" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Egoal" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Ehost" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="host" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Elocation" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="EOpenCa" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Eparticipant" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Consequence" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="consequence" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="CaDoc" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="document" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="DisasterDeclaration" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name, ddate" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Hazard" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list id="haz_con" fields="name, consequences" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="ImprovementArea" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="LocalDisdec" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name, ddate" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="StateDisdec" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name, ddate" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Strength" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="TclAlevel">
+  <input-many remove-hook="my_remove_hook">
+    <do part="level-part"> 
+        <field-list fields="alevel, improvement_plan, improvement_plan_completed, strengths, tcl_goals, tcl_objectives, improvement_areas">
+          <alevel-view:>
+            <if test="&@tcl.tcap">
+              <select-one options="&@tcl.tcap.alevels" />
+            </if>
+            <else>
+              <select disabled><option>First choose a Target Capability</option></select>
+            </else>
+          </alevel-view:>
+        </field-list>
+    </do>
+  </input-many>
+</def>
+
+<def tag="input-many" for="TclGoal" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="TclObjective" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Texercise" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name, tdate" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="Tpriority" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="name" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<def tag="input-many" for="TrainTcap" merge>
+  <hjq-input-many remove-hook="my_remove_hook">
+     <item:>
+       <field-list fields="tcap" />
+     </item:>
+  </hjq-input-many>
+</def>
+
+<!--  =====  Some Page Extensions =====  -->
+
+<!--  =====  Breadcrumbs =====  -->
+
+<extend tag="edit-page" for="Disdec">
+  <old-edit-page merge>
+    <heading:>
+      <h5><a:program param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Program" name="&this">Back to <name/></ht></a:program></h5>
+      <br /><h2>Disaster Declarations</h2>
+    </heading:>
+  </old-edit-page>
+</extend>
+
+<extend tag="edit-page" for="Eeca">
+  <old-edit-page merge>
+    <heading:>
+      <h5><a:program param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Program" name="&this">Back to <name/></ht></a:program></h5>
+      <br /><h2>EMAP Standard 4.14</h2>
+    </heading:>
+  </old-edit-page>
+</extend>
+
+<extend tag="show-page" for="Eeca">
+  <old-show-page merge>
+    <heading:>
+      <h5><a:program param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Program" name="&this">Back to <name/></ht></a:program></h5>
+      <br /><h2>EMAP Standard 4.14</h2>
+    </heading:>
+  </old-show-page>
+</extend>
+
+<extend tag="edit-page" for="Event">
+  <old-edit-page merge>
+    <heading:>
+      <h5><a:program param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Program" name="&this">Back to <name/></ht></a:program></h5>
+      <br /><h2>Edit Event</h2>
+    </heading:>
+  </old-edit-page>
+</extend>
+
+<extend tag="edit-page" for="Hira">
+  <old-edit-page merge>
+    <heading:>
+      <h5><a:program param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Program" name="&this">Back to <name/></ht></a:program></h5>
+      <br /><h2>EMAP Standard 4.3</h2>
+    </heading:>
+  </old-edit-page>
+</extend>
+
+<extend tag="edit-page" for="LearnedLesson">
+  <old-edit-page merge>
+    <heading:>
+      <h5><a:event param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Event" name="&this">Back to <name/></ht></a:event></h5>
+      <br /><h2>Edit Lesson Learned</h2>
+    </heading:>
+  </old-edit-page>
+</extend>
+
+<extend tag="edit-page" for="Tcl">
+  <old-edit-page merge>
+    <heading:>
+      <h5><a:event param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Event" name="&this">Back to <name/></ht></a:event></h5>
+      <br /><h2>Edit Target Capability Data</h2>
+    </heading:>
+  </old-edit-page>
+</extend>
+
+<extend tag="edit-page" for="TrainingPlan">
+  <old-edit-page merge>
+    <heading:>
+      <h5><a:program param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Program" name="&this">Back to <name/></ht></a:program></h5>
+      <br /><h2>Exercise Plan</h2>
+    </heading:>
+  </old-edit-page>
+</extend>
+
+<!--<extend tag="edit-page" for="User">
+  <old-edit-page merge>
+    <append-heading:>
+      <br /><transition-buttons />
+    </append-heading:>
+  </old-edit-page>
+</extend>-->
+
+<extend tag="show-page" for="User">
+  <old-show-page merge without-parent-link/>
+</extend>
+
+<extend tag="new-for-event-page" for="Upload">
+  <old-new-for-event-page merge>
+    <append-content-body:>
+      <section class="upload_section">
+        <div>
+          <h3>Uploaded Documents</h3>
+        </div>
+        <collection:uploads with="&@event" />
+      </section>
+    </append-content-body:>
+  </old-new-for-event-page>
+</extend>
+
+<extend tag="new-for-program-page" for="Upload">
+  <old-new-for-program-page merge>
+    <append-content-body:>
+      <div param="org-chart">
+        <h4><p>Please include an Organizational Chart in the uploaded documents.</p></h4><br />
+      </div>
+      <section class="upload_section">
+        <div>
+          <h3>Uploaded Documents</h3>
+        </div>
+        <collection:uploads with="&@program" />
+      </section>
+    </append-content-body:>
+  </old-new-for-program-page>
+</extend>
+
+<!--  =====  CARD DEFINITIONS  =====  -->
+
+<def tag="card" for="Program">
+  <card class="program" param="default" merge>
+    <header param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header>
+    <body param>
+      <ht key="event.collection.count" count="&this.events.size">
+         <count:events param/>
+      </ht><br /><br />
+      <h4><a action="edit" if="&can_edit?" param="edit-link" >
+        <button label="Edit Program Contact and Corrective Action Process">Edit Program Contact and Corrective Action Process</button>
+      </a></h4>
+    </body>
+    <delete-button class="actions" />
+  </card>
+</def>
+
+
+<!--  =====  CARD EXTENSIONS  =====  -->
+
+<extend tag="card" for="CorrectiveAction"> 
+  <card>
+    <br /><h3><view:name /></h3>
+    <h5>Assigned To: </h5><view:assigned_to /><br />
+    <h5>Completed By: </h5><view:completed_by /> <h5>Date Completed: </h5><view:completed_date />
+    <h5><a action="edit" if="&can_edit?" param="edit-link" >Reviewer's Finding</a></h5>
+    <delete-button class="actions" />
+  </card> 
+</extend>
+
+<extend tag="card" for="Disdec"> 
+  <card>
+    <br /><h3><name /></h3>
+    <h5><a action="edit" if="&can_edit?" param="edit-link" ><button>Open Declarations</button></a></h5>
+  </card> 
+</extend>
+
+<extend tag="card" for="Eeca"> 
+  <card>
+    <br /><h3><name /></h3>
+    <!--<delete-button class="actions" />-->
+    <h5><a action="edit" if="&can_edit?" param="edit-link" ><button>Open EMAP 4.14</button></a></h5>
+  </card> 
+</extend>
+
+<!--<extend tag="card" for="Event"> 
+  <card class="event" param="default" merge>
+    <header>
+      <h4><a><name/></a></h4>
+    </header>
+    <body>
+      <view:event_date/>
+      <ht key="tcl.collection.count" count="&this.tcls.size">
+         <count:tcls param/>
+      </ht>
+    </body><br />
+    <delete-button class="actions" />
+    <h5><a action="edit" if="&can_edit?" param="edit-link" >Edit Event</a></h5>
+  </card> 
+</extend>-->
+
+<extend tag="card" for="Hira"> 
+  <card>
+    <br /><h3><name /></h3>
+    <!--<delete-button class="actions" />-->
+    <h5><a action="edit" if="&can_edit?" param="edit-link" ><button>Open EMAP 4.3</button></a></h5>
+  </card> 
+</extend>
+
+<extend tag="card" for="LearnedLesson"> 
+  <card>
+    <br /><h5><name /></h5>
+    <delete-button class="actions" />
+    <h5><a action="edit" if="&can_edit?" param="edit-link" ><button>Open Lesson Learned</button></a></h5>
+  </card> 
+</extend>
+
+<extend tag="card" for="Review"> 
+  <old-card merge>
+    <body:>
+      <h3><a action="edit" if="&can_edit?" param="edit-link"><view:program /></a></h3>
+      <h5><repeat:findings join="  "><a action="edit" if="&can_edit?" param="edit-link"><button>Open Review Summary</button></a></repeat></h5>
+      <div class="users">
+        Assigned Reviewers: <repeat:users join=", "><name/></repeat>
+      </div>
+      <delete-button class="actions" />
+    </body:>
+  </old-card> 
+</extend>
+
+<extend tag="card" for="Tcl"> 
+  <card class="event" param="default" merge>
+      <h4><a action="edit" if="&can_edit?" param="edit-link" ><view:tcap/></a></h4>
+    <delete-button class="actions" />
+    <h5><a action="show" if="&can_view?" param="show-link">Corrective Actions</a></h5>
+  </card> 
+</extend>
+
+<extend tag="card" for="TrainingPlan"> 
+  <card>
+    <br /><h3><name /></h3>
+    <delete-button class="actions" />
+    <h5><a action="edit" if="&can_edit?" param="edit-link" ><button>Open Exercise Plan</button></a></h5>
+  </card> 
+</extend>
+
+<extend tag="card" for="Upload"> 
+  <card> 
+    <br />
+    <h4><a action="edit" if="&can_edit?" param="edit-link" ><name /></a></h4>
+    <a href="#{this.proof.url(:original, false)}" target="_blank"><view:proof_file_name /></a>
+    <p>
+      Uploaded: <view:created_at format="%B %d, %Y" />
+    </p> 
+    <delete-button class="actions" /> 
+  </card> 
+</extend>
+
+<extend tag="card" for="User"> 
+  <card>
+    <header>
+      <h4 param="heading"><a><name/></a></h4><%= h this.state.titleize %>
+    </header>
+    <delete-button class="actions" />
+    <div class="roles">
+      <record-flags fields="administrator, reviewer, program" param/>
+    </div>
+    <h5><a action="edit" if="&can_edit?" param="edit-link" >Edit Account</a></h5>
+  </card> 
+</extend>
+
+
+<!--  =====  FORM DEFINITIONS  =====  -->
+
+<def tag="form" for="Disdec">
+  <form merge without-heading param="default">
+    <error-messages param/>
+    <after-submit uri="#{url_for(this_parent)}" />
+    <h3> For more information about FEMA Disaster Declarations,</h3><h2><a href="http://www.fema.gov/news/disasters.fema" target="_blank">Visit FEMA's website.</a></h2><br />
+    <br /><h3>FEMA Disaster Declarations</h3><hr /><br />
+    <field-list fields="disaster_declarations" param/>
+    <br /><h3>State Disaster Declarations</h3><hr /><br />
+    <field-list fields="state_disdecs" param/>
+    <br /><h3>Local Disaster Declarations</h3><hr /><br />
+    <field-list fields="local_disdecs" param/>
+    <div param="actions">
+      <submit label="#{ht 'disdec.actions.save', :default=>['Save']}" param/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="Eeca">
+  <form merge param="default">
+    <error-messages param/>
+    <after-submit uri="#{url_for(this_parent)}" />
+      <h1>4.14: Exercises, Evaluations and Corrective Actions</h1><hr /><br />
+      <h2>Overview</h2><p>An accredited Emergency Management Program will encompass an exercise, evaluation and corrective action process.</p><hr /><br />
+      <h3>4.14.1</h3><p> A documented exercise program is established that regularly tests the skills, abilities, and experience of emergency personnel as well as the plans, policies, procedures, equipment, and facilities of the Emergency Management Program. The exercise program is tailored to the range of hazards that confronts the jurisdiction.</p><hr /><br />
+    <field-list fields="ex_prog, ex_prog_desc, ex_prog_doc, test_sae_frequency, test_epef_frequency, match_hira" param/><br />
+     <submit label="#{ht 'eeca.actions.save', :default=>['Save']}" param/>
+      <hr /><br />
+      <h3>4.14.2</h3><p>The Emergency Management Program shall evaluate plans, procedures, and capabilities through periodic reviews, testing, post-incident reports, lessons learned, performance evaluations, exercises and real-world events.  The products of these evaluations are documented and disseminated within the Emergency Management Program including and to key stakeholders and selected partners.</p><hr /><br />
+    <field-list fields="ex_eval_proc, eep_desc, eep_doc, plans_procs_review, pp_rev_frequency, caps_reviewed, partners" param/><br />
+     <submit label="#{ht 'eeca.actions.save', :default=>['Save']}" param/>
+      <hr /><br />
+      <h3>4.14.3</h3><p>A process for corrective actions shall be established and implemented to prioritize and track the resolution of deficiencies in real world and exercise events.  Corrective actions identified in the corrective action process shall be used to revise relevant plans.</p><hr /><br />
+    <field-list fields="ca_proc, resolution_desc, resolution_doc" param/>
+    <div param="actions">
+      <submit label="#{ht 'eeca.actions.save', :default=>['Save']}" param/>&nbsp;&nbsp;&nbsp;
+      <a action="show" if="&can_view?" param="show-link"><button>
+              <ht key="eeca.actions.show" name="&this.respond_to?(:name) ? this.name : ''">
+                Submit EMAP 4.14 Information
+              </ht></button>
+      </a>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="Finding">
+  <form merge param="default">
+    <error-messages param/>
+    <!--<div class="report">
+      <a class="revreport" href="#{base_url}/programs/#{this.program_id}.pdf" target="_blank" param="report"><button>Reviewer Report</button></a>
+    </div>-->
+    <div param="tabs"><br />
+    </div>
+    <field-list fields="summary, recommendation" param />
+    <div param="actions">
+      <submit label="#{ht 'finding.actions.save', :default=>['Save']}" param/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="Hira">
+  <form merge param="default">
+    <error-messages param/>
+    <after-submit uri="#{url_for(this_parent)}" />
+    <h1>4.3: Hazard Identification, Risk Assessment and Consequence Analysis</h1>
+    <h2>Overview</h2><p>An accredited Emergency Management Program will encompass a Hazard Identification, Risk Assessment (HIRA) and Consequence Analysis.  The chapter includes responsibilities and activities associated with the identification of hazards and assessment of risks to persons, public and private property and structures.</p><hr /><br />
+    <h3>4.3.1</h3><p>The Emergency Management Program shall identify the natural and human-caused hazards that potentially impact the jurisdiction using a broad range of sources.  The Emergency Management Program shall assess the risk and vulnerability of people, property, the environment, and its own operations from these hazards.</p><hr /><br />
+    <h3>4.3.2</h3><p>The Emergency Management Program shall conduct a consequence analysis for the hazards identified in 4.3.1 to consider the impact on the public; responders; continuity of operations including continued delivery of services; property, facilities, and, infrastructure; the environment; the economic condition of the jurisdiction and public confidence in the jurisdiction’s governance.</p><hr /><br />
+    <field-list fields="matching, description" param/><br /><br />
+    <h3>Hazard Identification and Consequence Analysis</h3><hr />
+    <field-list id="haz" fields="hazards" />
+    <div param="actions">
+      <submit label="#{ht 'hira.actions.save', :default=>['Save']}" param/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="LearnedLesson">
+  <form merge param="default">
+    <error-messages param/>
+    <after-submit uri="#{url_for(this_parent)}" />
+    <field-list fields="title, description" param/>
+    <div param="actions">
+      <submit label="#{ht 'learned_lesson.actions.save', :default=>['Save']}" param/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="Program">
+  <form merge param="default">
+    <error-messages param/>
+      <h1>General Program Information</h1>
+      <field-list fields="name, program_jurisdiction, program_street, program_city, program_state, program_zip" /><br />
+      <h1>Event Strategic Review Contact Information</h1>
+      <field-list fields="program_contact, contact_title, contact_phone, contact_mobile, contact_email"/><br />
+      <hr /><br />
+      <h2>Corrective Action Process</h2>
+      <p>The evaluation and improvement of mission and task performance is the final step of the Preparedness Cycle and crucial to informing risk assessments, managing vulnerabilities, allocating resources, and informing the other elements of the Cycle. Organizations develop improvement plans and track corrective actions to address the capabilities identified in plans and tested in exercises or real events.  Using this data to reassess and revise plans and protocols contributes to the beginning of the next Preparedness Cycle by ensuring that updated strategies and plans can be used to inform new preparedness-building activities.</p><br />
+      <field-list fields="continuous_ca_plan, proc_for_devel, ca_tracked, ca_summary" /><br />
+      <h4><p>Using the fields below, list the Programs top ten (10) Corrective Actions over the last calendar year</p></h4>
+      <field-list id= "ca_top" fields="ca_top_1, ca_top_2, ca_top_3, ca_top_4, ca_top_5, ca_top_6, ca_top_7, ca_top_8, ca_top_9, ca_top_10" /><br /><hr />
+      <br />
+      <div param="actions">
+        <submit label="Submit Program Information" param/>&nbsp;&nbsp;&nbsp;
+      </div>
+  </form>
+</def>
+
+<def tag="form" for="TrainingPlan">
+  <form merge param="default">
+    <error-messages param/>
+    <after-submit uri="#{url_for(this_parent)}" />
+    <field-list fields="name" /><br /><br />
+    <field-list fields="texercises" /><br /><br />
+    <field-list fields="tpriorities" /><br /><br />
+    <field-list fields="train_tcaps" />
+    <div param="actions">
+      <submit label="#{ht 'training_plan.actions.save', :default=>['Save']}" param/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="Upload">
+  <form enctype="multipart/form-data" merge>
+    <error-messages param/>
+    <after-submit uri="#{url_for(this_parent)}" />
+
+    <field-list fields="name, proof" />
+    <div param="actions">
+      <submit label="#{ht 'upload.actions.save', :default=>['Save']}" />
+    </div>
+  </form>
+</def>
+
+
+<!--   FORM EXTENSIONS    -->
+
+<extend tag="form" for="CorrectiveAction">
+  <old-form merge>
+    <field-list: skip="tcl"/>
+  </old-form>
+</extend>
+
+<extend tag="form" for="Event">
+  <old-form merge without-cancel>
+    <field-list: fields="event_name, event_contact, event_date, event_end_date, event_duration, event_duration_description, ehosts, event_scenario, event_scenario_summary, event_type, event_state, statewide_event, multistate_event, ema_role, elocations, eparticipants, dhs_funded, efundings, e_open_cas" param/>
+  </old-form>
+</extend>
+
+<extend tag="form" for="Tcl">
+  <old-form merge>
+    <field-list fields="tcap, alevel, strengths, improvement_areas, tcl_goals, tcl_objectives" />
+    <div>
+      <submit label="#{ht 'tcl.actions.save', :default=>['Save']}" /><or-cancel/>
+    </div>
+  </old-form>
+</extend>
+
+<!--    SHOW-PAGE EXTENTIONS     -->
+
+<extend tag="show-page" for="User">
+  <old-show-page merge>
+    <collection-section:>
+      <if test="&this.administrator">
+        <h3><Your/> Assigned Reviews</h3>
+        <repeat with="&@user.reviews.group_by(&:program)">
+          <collection/>
+        </repeat>
+      </if>
+      <if test="&this.reviewer">
+        <h3><Your/> Assigned Reviews</h3>
+        <repeat with="&@user.reviews.group_by(&:program)">
+          <collection/>
+        </repeat>
+      </if>
+      <else>
+        <br /><br /><p>Something witty! Hoo-Haa</p>
+      </else>
+    </collection-section:>
+  </old-show-page>
+</extend>
+
+<!--    SHOW-PAGE DEFINITIONS    -->
+
+<def tag="show-page" for="Event">
+  <page merge event-name="#{ht 'event.show.event-name', :default=>['Event'] }">
+
+    <body: class="show-page event" param/>
+
+    <content: param>
+      <section-group>
+        <section param="main-content">
+          <header param="content-header">
+            <a:program param="parent-link">&laquo; <ht key="event.actions.back_to_parent" parent="Program" name="&this">Back to <name/></ht></a:program>
+            <h2 param="heading">
+              <ht key="event.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="statewide_event, multistate_event" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="event.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Event
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="event_name, event_contact, event_date, event_end_date, event_duration, event_duration_description, ehosts, event_scenario_summary, ema_role, event_scenario, event_state, event_type" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="tcl.collection.heading" count="&this.tcls.count" >
+                  <human-collection-name collection="tcls" your/>
+                </ht>
+              </h3>
+
+              <collection:tcls param/>
+
+              <a:tcls action="new" if="&can_create?(@event.tcls)" param="new-link">
+                <button><h4>Add Target Capability</h4></button>
+              </a:tcls>
+            </section>
+          </section>
+        </section>
+
+        <aside param>
+          <section param="learned_lessons-collection-section">
+            <h3 param="learned_lessons-collection-heading">
+              <ht key="learned_lesson.collection.heading" count="&this.learned_lessons.count" >
+                <human-collection-name collection="learned_lessons" your/>
+              </ht>
+            </h3>
+            <a:learned_lessons action="new" if="&can_create?(@event.learned_lessons)" param="new-link">
+              <button>Add Lessons Learned</button>
+            </a:learned_lessons>
+            <collection:learned_lessons  param="learned_lessons-collection"/>
+          </section><br /><hr /><br />
+          <section param="uploads-collection-section">
+            <h3 param="uploads-collection-heading">
+              <ht key="upload.collection.heading" count="&this.uploads.count" >
+                <human-collection-name collection="uploads" your/>
+              </ht>
+            </h3>
+            <a:uploads action="new" if="&can_create?(@event.uploads)" param="new-link">
+              <button>Upload File</button>
+            </a:uploads>
+            <collection:uploads  param="uploads-collection"/>
+          </section>
+        </aside>
+      </section-group>
+    </content:>
+  </page>
+</def>
+
+<def tag="show-page" for="Program">
+  <page merge title="#{ht 'program.show.title', :default=>['Program'] }">
+
+    <body: class="show-page program" param/>
+
+    <content: param>
+      <section-group>
+        <section param="main-content">
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="program.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="continuous_ca_plan, proc_for_devel, ca_tracked" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="program.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Program
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="program_jurisdiction, program_contact, ca_summary" />
+            <h4>Resolved Corrective Actions in the previous year</h4>
+            <field-list fields="ca_top_1, ca_top_2, ca_top_3, ca_top_4, ca_top_5, ca_top_6, ca_top_7, ca_top_8, ca_top_9, ca_top_10" param/>
+            
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="event.collection.heading" count="&this.events.count" >
+                  <human-collection-name collection="events" your/>
+                </ht>
+              </h3>
+
+              <collection:events param="events-collection"/>
+
+              <a:events action="new" if="&can_create?(@program.events)" param="new-link">
+                <button label="New Event">
+                  <h4>Add Event</h4>
+                </button>
+              </a:events>
+            </section>
+          </section>
+        </section>
+
+        <aside param>
+          <section param="training_plans-collection-section">
+            <h3 param="training_plans-collection-heading">
+              <ht key="training_plan.collection.heading" count="&this.training_plans.count" >
+                <human-collection-name collection="training_plans" your/>
+              </ht>
+            </h3>
+            <a:training_plans action="new" if="&can_create?(@program.training_plans)" param="new-link">
+              <button>New Exercise Plan</button>
+            </a:training_plans>
+            <collection:training_plans  param="training_plans-collection"/>
+          </section><br />
+          <section param="disdecs-collection-section"><hr />
+            <collection:disdecs without-new-link param="disdecs-collection"/>
+          </section>
+          <section param="hiras-collection-section">
+            <collection:hiras without-new-link param="hiras-collection"/>
+          </section>
+          <section param="eecas-collection-section">
+            <collection:eecas without-new-link param="eecas-collection"/><hr />
+          </section><br />
+          <section param="uploads-collection-section">
+            <h3 param="uploads-collection-heading">
+              <ht key="upload.collection.heading" count="&this.uploads.count" >
+                <human-collection-name collection="uploads" your/>
+              </ht>
+            </h3>
+            <a:uploads action="new" if="&can_create?(@program.uploads)" param="new-link">
+              <button>Upload File</button>
+            </a:uploads>
+            <collection:uploads  param="uploads-collection"/>
+           </section>
+        </aside>
+      </section-group>
+    </content:>
+  </page>
+</def>
+
+
+<!--<def tag="show-page" for="Tcl">
+  <page merge title="#{ht 'tcl.show.title', :default=>['Target Capability'] }">
+
+    <body: class="show-page tcl" param/>
+
+    <content: param>
+      <header param="content-header">
+        <a:event param="parent-link">&laquo; <ht key="tcl.actions.back_to_parent" parent="Event" name="&this">Back to <name/></ht></a:event>
+        <h2 param="heading">
+          Target Capability Level - <view:tcap />
+        </h2>
+        <record-flags fields="improvement_plan, improvement_plan_completed" param/>
+        <a action="edit" if="&can_edit?" param="edit-link">
+          <ht key="tcl.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit Target Capability
+          </ht>
+        </a>
+      </header>
+      <section param="content-body">
+        <field-list fields="alevel, strengths, tcl_goals, tcl_objectives, improvement_areas" param/>
+        <section param="collection-section">
+          <h3 param="collection-heading">
+            <ht key="corrective_action.collection.heading" count="&this.corrective_actions.count" >
+              <human-collection-name collection="corrective_actions" your/>
+            </ht>
+          </h3>
+
+          <collection:corrective_actions>
+            <table-plus  with="&@corrective_actions" fields="name, assigned_to, completed_by, completed_date" without-search-form>
+              <empty-message:>No Corrective Actions have been entered</empty-message:>
+              <controls:/>
+            </table-plus>
+          </collection:corrective_actions>
+
+          <a:corrective_actions action="new" if="&can_create?(@tcl.corrective_actions)" param="new-link">
+            <button>
+              Add Corrective Action
+            </button>
+          </a:corrective_actions>
+        </section>
+      </section>
+    </content:>
+  </page>
+</def>-->

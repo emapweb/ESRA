@@ -1,0 +1,3 @@
+<edit-page:>
+  <form: update="save" />
+</edit-page:>

@@ -1,0 +1,321 @@
+body {
+	background: url(../images/webbackground.png) -150px -5px no-repeat;
+	background-color: #4E81B8;	
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+h4 {margin: 10px 0 5px;  font-size: 14px; line-height: 18px;}
+
+div.page-header h1.app-name {
+  text-indent: -10000px;
+  background: url(../images/EMAPlogo.png) 70px 5px no-repeat;
+  padding: 10px 10px 10px 10px; margin: 0;
+  height: 62px;
+}
+
+a:link {
+	color: #235;
+	background: none;
+	border-bottom: 1px solid #235;
+}
+
+ul#front_bullet {
+	padding-left: 20px;
+}
+
+td#main-nav-container {
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+}
+
+td#content-container {
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+}
+
+.card {
+  background-color: #d3dfed;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+
+.button {
+  border-top: 1px solid #96d1f8;
+  border-bottom: none;
+  background: #4A82C1;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#4A82C1));
+  background: -moz-linear-gradient(top, #3e779d, #4A82C1);
+  padding: 4.5px 9px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: white;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  /vertical-align: middle;
+}
+
+.button:hover {
+  border-top-color: #28597a;
+  border-bottom: none;
+  background: #28597a;
+  color: #ccc;
+}
+
+.button:active {
+  border-top-color: #1b435e;
+  border-bottom: none;
+  background: #1b435e;
+}
+
+button {
+  border-top: 1px solid #96d1f8;
+  border-bottom: none;
+  background: #4A82C1;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#4A82C1));
+  background: -moz-linear-gradient(top, #3e779d, #4A82C1);
+  padding: 4.5px 9px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: white;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  /vertical-align: middle;
+}
+
+button:hover {
+  border-top-color: #28597a;
+  border-bottom: none;
+  background: #28597a;
+  color: #ccc;
+}
+
+button:active {
+  border-top-color: #1b435e;
+  border-bottom: none;
+  background: #1b435e;
+}
+
+.table-plus table td input.button, .collection .button{
+  padding: 1px 3px;
+  margin-left: 10px;
+  margin-top: 0;
+  background: #ff2929;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fb0808), to(#ff2929));
+  background: -moz-linear-gradient(top, #fb0808, #ff2929);
+}
+
+.edit-page .content-header .delete-button{
+  padding: 1px 3px;
+  margin-left: 10px;
+  margin-top: 0;
+  background: #ff2929;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fb0808), to(#ff2929));
+  background: -moz-linear-gradient(top, #fb0808, #ff2929);
+}
+
+#editprogram{
+  background-color: #5B8BA0;
+}
+
+
+
+div.aside {
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+}
+
+#main-nav-container {
+	width: 1%;
+	background: #B6C9DA;
+	border-bottom: #FCFFF5;
+}
+
+.main-nav {
+	padding: 40px 0;
+}
+
+.main-nav a {
+	border-bottom: 1px solid #FCFFF5;
+	/border-radius: 6px;/
+	/-moz-border-radius: 6px;/
+}
+
+.main-nav li.current a {
+	background: #FCFFF5 url(../images/100-B6A9DA-FCFEF5-H.png) repeat-y;
+	color: #4A82C1;
+}
+
+.main-nav a:hover {
+	background: #FCFFF5 url(../images/100-B6A9DA-FCFEF5-H.png) repeat-y;
+
+}
+
+.front-page .welcome-message {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	background-color: #EDEDED;
+	background-image: url(../images/50-B6C9DA-EDEDED.png);
+}
+
+
+
+div#sn-class {
+	text-align: right;
+} 
+
+font#wb-disclaimer {
+	font-size: 11px;
+}
+
+a:visited {
+	color: #193440;
+	background: none;
+	border-bottom: #193440;
+}
+
+a.new-link.new-event-link{
+  border-bottom: none;
+}
+
+a.new-link.new-tcl-link{
+  border-bottom: none;
+}
+
+a.new-link.new-corrective_action-link{
+  border-bottom: none;
+}
+
+a.new-link.new-training_plan-link{
+  border-bottom: none;
+}
+
+a.new-link.new-upload-link{
+  border-bottom: none;
+}
+
+a.edit-link.training-plan-link{
+  border-bottom: none;
+}
+
+a.edit-link.disdec-link{
+  border-bottom: none;
+}
+
+a.edit-link.hira-link{
+  border-bottom: none;
+}
+
+a.edit-link.eeca-link{
+  border-bottom: none;
+}
+
+a.edit-link.finding-link{
+  border-bottom: none;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+a#edit-program{
+  border-bottom: none;
+  position: absolute;
+  left: 2px;
+  top: 50px;
+}
+
+a.revreport{
+  border-bottom: none;
+  position: relative;
+  left: 10px;
+  top: -45px;
+}
+
+a.docreport{
+  border-bottom: none;
+  position: absolute;
+  right: 105px;
+  top: 35px;
+}
+
+a.pdfreport{
+  border-bottom: none;
+  position: absolute;
+  right: 10px;
+  top: 35px;
+}
+
+a.edit-link.program-link{
+  border-bottom: none;
+}
+
+a.new-program-link{
+  border-bottom: none;
+}
+
+a.sn-link {
+	border: none;
+}
+
+a.show-link.program-link {
+  border-bottom: none;
+}
+
+a.show-link.eeca-link {
+  border-bottom: none;
+}
+
+th.ca-top-1-label {
+  text-align:right;
+}
+
+th.ca-top-2-label {
+  text-align:right;
+}
+
+th.ca-top-3-label {
+  text-align:right;
+}
+
+th.ca-top-4-label {
+  text-align:right;
+}
+
+th.ca-top-5-label {
+  text-align:right;
+}
+
+th.ca-top-6-label {
+  text-align:right;
+}
+
+th.ca-top-7-label {
+  text-align:right;
+}
+
+th.ca-top-8-label {
+  text-align:right;
+}
+
+th.ca-top-9-label {
+  text-align:right;
+}
+
+th.ca-top-10-label {
+  text-align:right;
+}
+
+th.hazards-label {
+  width: 10px;
+}
+

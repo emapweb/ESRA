@@ -1,0 +1,25 @@
+<edit-page:>
+  <after-form:>
+    <br />
+    <hr /><hr /><br />
+    <h3>Upload a Disaster Declaration Document</h3>
+    This form is not quite operational. Please do not upload documents with this form just yet. It should be working very soon. Thank you.<br /><br />
+    <form with="&new_for_current_user(this.uploads)" owner="disdec" message="Uploading..." update="uploads-div" without-cancel>
+      <field-list: skip="disdec"/>
+    </form>
+    <h3>Uploads</h3>
+    <div part="uploads-div">
+      <error-messages/>
+      <table-plus:uploads fields="name, proof_file_name, updated_at">
+        <proof_file_name-view: with="&@ups">
+          <a><view /></a>
+        </proof_file_name-view:>
+        <updated_at-view:>
+          <view format="%B %d, %Y" />
+        </updated_at-view:>
+        <empty-message:>No documents have been uploaded</empty-message:>
+        <controls:/>
+      </table-plus>
+    </div>
+  </after-form:>
+</edit-page:>

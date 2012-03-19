@@ -1,0 +1,27 @@
+<edit-page>
+  <!--<custom-scripts:>
+    <hjq-assets/>
+    <script type="text/javascript">
+      var last_added;
+      var last_removed;
+      function my_add_hook() {
+        last_added = this;
+      }
+      function my_remove_hook() {
+        last_removed = this;
+        return confirm("really?");
+      }
+    </script>
+  </custom-scripts:>
+  <content:>
+    <form>
+      <error-messages/>
+      <field-list fields="tcap"/>
+      <hjq-input-many:alevel remove-hook="my_remove_hook" >
+        <add-item:>Add Activity Level</add-item:>
+        <remove-item:>Remove Story</remove-item:>
+      </hjq-input-many>
+      <submit value="Save" /><or-cancel/>
+    </form>
+  </content:>-->
+</edit-page>
